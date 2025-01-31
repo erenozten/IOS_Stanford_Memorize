@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(content: {
+        ZStack(content: {
+            RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 13) // RoundedRectangle şekline bir arka plan rengi verebilirsiniz. Ancak, doğrudan .strokeBorder() kullanırken arka plan rengi ekleyemezsiniz, çünkü .strokeBorder() sadece kenarlık çizer. Bunun yerine .background() veya .fill() kullanarak bir arka plan rengi ekleyebilirsiniz.
+            
             Text("🍟").font(.largeTitle)
         })
         .foregroundColor(.orange)
