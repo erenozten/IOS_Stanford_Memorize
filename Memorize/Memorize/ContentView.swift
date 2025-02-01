@@ -10,10 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack(content: {
-            CardView(content: "🍔", isFaceUp: true)
-            CardView(content: "🍟", isFaceUp: true)
-            CardView(content: "🌭", isFaceUp: true)
-            CardView(content: "🍕", isFaceUp: true)
+            
+            let emojis: [String] = ["🍔", "🍟", "🌭", "🍕", "🌮", "🌯", "🥪", "🍗", "🍿", "🥤"]
+
+            CardView(content: emojis[0], isFaceUp: true)
+            CardView(content: emojis[1], isFaceUp: false)
+            CardView(content: emojis[2], isFaceUp: true)
+            CardView(content: emojis[3], isFaceUp: true)
         })
         .foregroundColor(.orange)
         .imageScale(.small)
