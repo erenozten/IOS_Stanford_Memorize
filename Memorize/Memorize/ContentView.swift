@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let emojis: [String] = ["🍔", "🍟", "🌭", "🍕", "🌮", "🌯", "🥪", "🍗", "🍿", "🥤"]
+
     var body: some View {
         HStack(content: {
-            
-            let emojis: [String] = ["🍔", "🍟", "🌭", "🍕", "🌮", "🌯", "🥪", "🍗", "🍿", "🥤"]
-
             CardView(content: emojis[0], isFaceUp: true)
             CardView(content: emojis[1], isFaceUp: false)
             CardView(content: emojis[2], isFaceUp: true)
