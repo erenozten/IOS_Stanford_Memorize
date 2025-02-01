@@ -23,7 +23,7 @@ struct ContentView: View {
 
 struct CardView: View{
     
-    var content: String
+    let content: String
     @State var isFaceUp: Bool = false
     
 
