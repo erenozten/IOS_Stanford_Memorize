@@ -18,6 +18,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             HStack {
+                
                 ForEach(0..<cardCount, id: \.self){ index in
                     CardView(content: emojis[index])
                 }
@@ -26,9 +27,13 @@ struct ContentView: View {
             .padding()
 
             HStack{
-                Button("Add Card"){
+                Button(action :{
                     cardCount += 1
-                }
+                }, label: {
+                    Image(systemName: "rectangle.stack.badge.plus.fill")
+                })
+                .imageScale(.large)
+                .font(.largeTitle)
                 Spacer()
                 Button("Remove Card"){
                     cardCount -= 1
