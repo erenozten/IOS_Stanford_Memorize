@@ -41,7 +41,9 @@ struct CardView: View{
         })
         .onTapGesture {
             // onTapGesture bir view Modifier'dır. gördüğün gibi ZStack'ı modifiye ediyor! buna dikkat et..
-            isFaceUp = !isFaceUp
+            isFaceUp.toggle()
+            print(isFaceUp)
+            
         }
     }
 }
