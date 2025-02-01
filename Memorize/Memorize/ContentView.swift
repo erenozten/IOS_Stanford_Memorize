@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let emojis: [String] = ["🍔", "🍟", "🌭", "🍕", "🌮", "🌯", "🥪", "🍗", "🍿", "🥤"]
+    let emojis = ["🍔", "🍟", "🌭", "🍕", "🌮", "🌯", "🥪", "🍗", "🍿", "🥤"]
 
     var body: some View {
         HStack(content: {
