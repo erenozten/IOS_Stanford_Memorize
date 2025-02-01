@@ -24,7 +24,6 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.orange)
-            .padding()
 
             HStack{
                 Button(action :{
@@ -32,16 +31,15 @@ struct ContentView: View {
                 }, label: {
                     Image(systemName: "rectangle.stack.badge.plus.fill")
                 })
-                .imageScale(.large)
-                .font(.largeTitle)
                 Spacer()
                 Button("Remove Card"){
                     cardCount -= 1
                 }
             }
-            .padding()
+            .imageScale(.large)
+            .font(.largeTitle)
         }
-
+        .padding()
     }
     
 }
