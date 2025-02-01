@@ -23,7 +23,7 @@ struct ContentView: View {
 
 struct CardView: View{
     
-    var isFaceUp: Bool = false
+    @State var isFaceUp: Bool = false
     
     var body: some View{
         ZStack(content: {
@@ -40,6 +40,7 @@ struct CardView: View{
             }
         })
         .onTapGesture {
+            // onTapGesture bir view Modifier'dır. gördüğün gibi ZStack'ı modifiye ediyor! buna dikkat et..
             isFaceUp = !isFaceUp
         }
     }
