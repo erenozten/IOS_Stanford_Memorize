@@ -30,8 +30,8 @@ struct ContentView: View {
         VStack{
             ProjectName
             Spacer()
-            ThemeSelectors
             ScrollView{
+                ThemeSelectors
                 Cards
             }
             Spacer()
