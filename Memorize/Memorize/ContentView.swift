@@ -17,13 +17,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack{
-            HStack {
-                
-                ForEach(0..<cardCount, id: \.self){ index in
-                    CardView(content: emojis[index])
-                }
-            }
-            .foregroundColor(.orange)
+            Cards
 
             HStack{
                 CardAdder
@@ -56,6 +50,15 @@ struct ContentView: View {
         })
     }
     
+    
+    var Cards: some View{
+        HStack {
+            ForEach(0..<cardCount, id: \.self){ index in
+                CardView(content: emojis[index])
+            }
+        }
+        .foregroundColor(.orange)
+    }
 }
 
 struct CardView: View{
