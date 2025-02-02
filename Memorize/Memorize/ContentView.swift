@@ -42,12 +42,14 @@ struct ContentView: View {
     var Cards: some View{
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
             if(cardCount <= emojis.count){
-            ForEach(0..<cardCount, id: \.self){ index in
-                CardView(content: emojis[index])
-                    .aspectRatio(2/3, contentMode: .fit)
-                CardView(content: emojis[index])
-                    .aspectRatio(2/3, contentMode: .fit)
-            }
+                ForEach(0..<cardCount, id: \.self){ index in
+                    CardView(content: emojis[index])
+                        .aspectRatio(2/3, contentMode: .fit)
+                }
+                ForEach(0..<cardCount, id: \.self){ index in
+                    CardView(content: emojis[index])
+                        .aspectRatio(2/3, contentMode: .fit)
+                }
         }
         }
         .foregroundColor(.orange)
@@ -69,7 +71,6 @@ struct ContentView: View {
     var ThemeSelectors: some View{
         HStack{
             Group{
-                ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 2)
                 Spacer()
                     VStack{
                         ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 2)
