@@ -10,11 +10,11 @@ import SwiftUI
 struct ContentView: View {
     
     let emojis = ["🍔", "🍟", "🍕",
-                  //"🌮", "🌯", "🥪",
+                  "🌮", "🌯", "🥪",
                   "🍗", "🍿", "🌭",
                   "🥤"]
     
-    @State var cardCount: Int = 4
+    @State var cardCount: Int = 6
 
     var body: some View {
         VStack{
@@ -25,7 +25,7 @@ struct ContentView: View {
     }
         
     var Cards: some View{
-        HStack {
+        LazyVGrid(columns: [GridItem(),GridItem(),GridItem()]) {
             ForEach(0..<cardCount, id: \.self){ index in
                 CardView(content: emojis[index])
             }
