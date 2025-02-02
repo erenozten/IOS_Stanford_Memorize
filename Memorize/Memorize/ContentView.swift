@@ -26,26 +26,34 @@ struct ContentView: View {
             .foregroundColor(.orange)
 
             HStack{
-                Button(action :{
-                    if(cardCount < emojis.count){
-                        cardCount += 1
-                    }
-                }, label: {
-                    Image(systemName: "rectangle.stack.badge.plus.fill")
-                })
+                CardAdder
                 Spacer()
-                Button(action :{
-                    if(cardCount > 1){
-                        cardCount -= 1
-                    }
-                }, label: {
-                    Image(systemName: "rectangle.stack.badge.minus.fill")
-                })
+                CardRemover
             }
             .imageScale(.large)
             .font(.largeTitle)
         }
         .padding()
+    }
+    
+    var CardAdder: some View{
+        Button(action :{
+            if(cardCount < emojis.count){
+                cardCount += 1
+            }
+        }, label: {
+            Image(systemName: "rectangle.stack.badge.plus.fill")
+        })
+    }
+    
+    var CardRemover: some View{
+        Button(action :{
+            if(cardCount > 1){
+                cardCount -= 1
+            }
+        }, label: {
+            Image(systemName: "rectangle.stack.badge.minus.fill")
+        })
     }
     
 }
