@@ -29,12 +29,13 @@ struct ContentView: View {
     var body: some View {
         VStack{
             ProjectName
+            Spacer()
+            ThemeSelectors
             ScrollView{
                 Cards
             }
             Spacer()
             CardCountAdjusters
-            ThemeSelectors
         }
         .padding()
     }
