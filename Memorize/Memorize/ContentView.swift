@@ -23,28 +23,7 @@ struct ContentView: View {
         }
         .padding()
     }
-    
-    var CardAdder: some View{
-        Button(action :{
-            if(cardCount < emojis.count){
-                cardCount += 1
-            }
-        }, label: {
-            Image(systemName: "rectangle.stack.badge.plus.fill")
-        })
-    }
-    
-    var CardRemover: some View{
-        Button(action :{
-            if(cardCount > 1){
-                cardCount -= 1
-            }
-        }, label: {
-            Image(systemName: "rectangle.stack.badge.minus.fill")
-        })
-    }
-    
-    
+        
     var Cards: some View{
         HStack {
             ForEach(0..<cardCount, id: \.self){ index in
@@ -66,8 +45,21 @@ struct ContentView: View {
     }
     
     
+    func CardCountAdjuster(by offset: Int, symbol: String) -> some View{
+        Button(action :{
+                cardCount += offset
+        }, label: {
+            Image(systemName: symbol)
+        })
+    }
     
+    var CardAdder: some View{
+        return CardCountAdjuster(by: +1, symbol: "rectangle.stack.badge.plus.fill")
+    }
     
+    var CardRemover: some View{
+        return CardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.plus.fill")
+    }
     
 }
 
