@@ -92,6 +92,7 @@ struct ContentView: View {
     func ThemeSelector(selectedTheme: Array<String>, selectedThemeName: String, selectedCardCount: Int) -> some View{
         Button(action :{
             emojis = selectedTheme
+            emojis = emojis.shuffled()
             cardCount = selectedCardCount
             print(emojis)
         }, label: {
