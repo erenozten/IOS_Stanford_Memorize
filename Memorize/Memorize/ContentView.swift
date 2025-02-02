@@ -24,7 +24,7 @@ struct ContentView: View {
         }
     }
     
-    @State var cardCount: Int = 6
+    @State var cardCount: Int = 2
 
     var body: some View {
         VStack{
@@ -43,6 +43,8 @@ struct ContentView: View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
             if(cardCount <= emojis.count){
             ForEach(0..<cardCount, id: \.self){ index in
+                CardView(content: emojis[index])
+                    .aspectRatio(2/3, contentMode: .fit)
                 CardView(content: emojis[index])
                     .aspectRatio(2/3, contentMode: .fit)
             }
@@ -67,13 +69,14 @@ struct ContentView: View {
     var ThemeSelectors: some View{
         HStack{
             Group{
-                ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife")
-                ThemeSelector(selectedTheme: emojis_nature, selectedThemeName: "tree.fill")
-                ThemeSelector(selectedTheme: emojis_animal, selectedThemeName: "hare.fill")
+                ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 2)
+                ThemeSelector(selectedTheme: emojis_nature, selectedThemeName: "tree.fill", selectedCardCount: 4)
+                ThemeSelector(selectedTheme: emojis_animal, selectedThemeName: "hare.fill", selectedCardCount: 6)
             }
         }
         .imageScale(.large)
         .font(.largeTitle)
+        .foregroundColor(.cyan)
     }
     
     func CardCountAdjuster(by offset: Int, symbol: String) -> some View{
@@ -86,9 +89,10 @@ struct ContentView: View {
     }
     
     
-    func ThemeSelector(selectedTheme: Array<String>, selectedThemeName: String) -> some View{
+    func ThemeSelector(selectedTheme: Array<String>, selectedThemeName: String, selectedCardCount: Int) -> some View{
         Button(action :{
             emojis = selectedTheme
+            cardCount = selectedCardCount
             print(emojis)
         }, label: {
             Image(systemName: selectedThemeName)
