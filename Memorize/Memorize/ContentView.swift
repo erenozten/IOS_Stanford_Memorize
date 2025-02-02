@@ -13,11 +13,18 @@ struct ContentView: View {
                   "🌮", "🌯", "🥪",
                   "🍗", "🍿", "🌭",
                   "🥤"]
+    var ProjectName: some View{
+        HStack{
+        Text("Memorize")
+            .font(.largeTitle)
+        }
+    }
     
     @State var cardCount: Int = 6
 
     var body: some View {
         VStack{
+            ProjectName
             ScrollView{
                 Cards
             }
