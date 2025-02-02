@@ -13,6 +13,11 @@ struct ContentView: View {
                   "🌮", "🌯", "🥪",
                   "🍗", "🍿", "🌭",
                   "🥤"]
+    
+    let emojis_nature = ["🌿", "🌲", "🍃","🌻", "🌸", "🍄", "🏞", "🌊", "⛰","☀️"]
+    let emojis_animals = ["🐶", "🐱", "🦁","🐼", "🐸", "🐧","🐘", "🦉", "🦋","🐢"]
+
+    
     var ProjectName: some View{
         HStack{
         Text("Memorize")
@@ -30,6 +35,7 @@ struct ContentView: View {
             }
             Spacer()
             CardCountAdjusters
+            ThemeSelectors
         }
         .padding()
     }
@@ -56,6 +62,19 @@ struct ContentView: View {
     }
     
     
+    
+    var ThemeSelectors: some View{
+        HStack{
+            Group{
+                ThemeSelector(themeName: "hare")
+                ThemeSelector(themeName: "leaf")
+                ThemeSelector(themeName: "fork.knife")
+            }
+        }
+        .imageScale(.large)
+        .font(.largeTitle)
+    }
+    
     func CardCountAdjuster(by offset: Int, symbol: String) -> some View{
         Button(action :{
                 cardCount += offset
@@ -64,6 +83,16 @@ struct ContentView: View {
         })
         .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
     }
+    
+    
+    func ThemeSelector(themeName: String) -> some View{
+        Button(action :{
+               
+        }, label: {
+            Image(systemName: themeName)
+        })
+    }
+    
     
     var CardAdder: some View{
         return CardCountAdjuster(by: +1, symbol: "rectangle.stack.badge.plus.fill")
