@@ -100,7 +100,7 @@ struct ContentView: View {
         }, label: {
             Image(systemName: symbol)
         })
-        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
+        .disabled(cardCount + offset < 2 || cardCount + offset > emojis.count)
     }
     
     
