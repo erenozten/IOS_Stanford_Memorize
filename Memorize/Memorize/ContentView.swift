@@ -54,7 +54,7 @@ struct ContentView: View {
         }
         .foregroundColor(.orange)
     }
-     
+    
     
     var CardCountAdjusters: some View{
         HStack{
