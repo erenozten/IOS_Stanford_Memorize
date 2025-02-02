@@ -60,7 +60,7 @@ struct ContentView: View {
     }
     
     var CardRemover: some View{
-        return CardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.plus.fill")
+        return CardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus.fill")
     }
     
 }
