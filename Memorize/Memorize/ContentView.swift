@@ -77,7 +77,7 @@ struct CardView: View{
     var body: some View{
         ZStack(content: {
             
-            let base = RoundedRectangle(cornerRadius: 12)
+            let base = RoundedRectangle(cornerRadius: 12) // base'yi isFaceUp durumundan bağımsız olarak: her durumda oluşturuyoruz. Bunu (base'yi) isFaceUp durumuna göre aşağıda modifiye ediyoruz
             
             Group {
                 base.fill(Color.white) // arkaplan rengi
