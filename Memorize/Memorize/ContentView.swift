@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
-    @State var selectedTheme: Int = 0
-    //@State var emojis: [String] = []
+    //@State var emojis: [String] = [""]
     @State var emojis = ["🍔", "🍟", "🍕","🌮", "🌯", "🥪","🍗", "🍿", "🌭","🥤"]
 
     @State var emojis_food = ["🍔", "🍟", "🍕","🌮", "🌯", "🥪","🍗", "🍿", "🌭","🥤"]
@@ -26,7 +24,7 @@ struct ContentView: View {
         }
     }
     
-    @State var cardCount: Int = 5
+    @State var cardCount: Int = 6
 
     var body: some View {
         VStack{
