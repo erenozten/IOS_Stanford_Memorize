@@ -18,7 +18,9 @@ struct ContentView: View {
 
     var body: some View {
         VStack{
-            Cards
+            ScrollView{
+                Cards
+            }
             Spacer()
             CardCountAdjusters
         }
