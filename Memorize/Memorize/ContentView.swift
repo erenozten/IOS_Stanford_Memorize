@@ -70,15 +70,28 @@ struct ContentView: View {
         HStack{
             Group{
                 ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 2)
-                ThemeSelector(selectedTheme: emojis_nature, selectedThemeName: "tree.fill", selectedCardCount: 4)
-                ThemeSelector(selectedTheme: emojis_animal, selectedThemeName: "hare.fill", selectedCardCount: 6)
-            }
-        }
+                Spacer()
+                    VStack{
+                        ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 2)
+                        Text("Food").font(.title2)
+                    }
+                    Spacer()
+                    VStack{
+                        ThemeSelector(selectedTheme: emojis_nature, selectedThemeName: "tree.fill", selectedCardCount: 4)
+                        Text("Nature").font(.title2)
+                    }
+                    Spacer()
+                    VStack{
+                        ThemeSelector(selectedTheme: emojis_animal, selectedThemeName: "hare.fill", selectedCardCount: 6)
+                        Text("Animal").font(.title2)
+                    }
+                    Spacer()
+                }
         .imageScale(.large)
         .font(.largeTitle)
         .foregroundColor(.cyan)
+        }
     }
-    
     func CardCountAdjuster(by offset: Int, symbol: String) -> some View{
         Button(action :{
                 cardCount += offset
@@ -98,6 +111,7 @@ struct ContentView: View {
         }, label: {
             Image(systemName: selectedThemeName)
         })
+
     }
     
     
