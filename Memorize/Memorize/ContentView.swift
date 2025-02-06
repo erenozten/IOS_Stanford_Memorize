@@ -75,20 +75,21 @@ struct ContentView: View {
                 Spacer()
                     VStack{
                         ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 2)
-                        Text("Food").font(.title2)
+                        Text("Food")
                     }
                     Spacer()
                     VStack{
                         ThemeSelector(selectedTheme: emojis_nature, selectedThemeName: "tree.fill", selectedCardCount: 4)
-                        Text("Nature").font(.title2)
+                        Text("Nature")
                     }
                     Spacer()
                     VStack{
                         ThemeSelector(selectedTheme: emojis_animal, selectedThemeName: "hare.fill", selectedCardCount: 6)
-                        Text("Animal").font(.title2)
+                        Text("Animal")
                     }
                     Spacer()
                 }
+        .font(.title2)
         .imageScale(.large)
         .font(.largeTitle)
         .foregroundColor(.cyan)
@@ -130,7 +131,7 @@ struct ContentView: View {
 struct CardView: View{
     
     let content: String
-    @State var isFaceUp: Bool = false
+    @State var isFaceUp: Bool = true
 
     var body: some View{
         ZStack(content: {
@@ -150,7 +151,6 @@ struct CardView: View{
             // onTapGesture bir view Modifier'dır. gördüğün gibi ZStack'ı modifiye ediyor! buna dikkat et..
             isFaceUp.toggle()
             print(isFaceUp)
-            
         }
     }
 }
