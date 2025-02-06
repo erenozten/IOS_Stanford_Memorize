@@ -14,8 +14,7 @@ struct ContentView: View {
 
     @State var emojis_food = ["🍔", "🍟", "🍕","🌮", "🌯", "🥪","🍗", "🍿", "🌭","🥤"]
     @State var emojis_nature = ["🌿", "🌲", "🍃","🌻", "🌸", "🍄", "🏞", "🌊", "⛰","☀️"]
-    @State var emojis_animal = ["🐶", "🐱", "🦁","🐼", "🐸", "🐧","🐘", "🦉", "🦋","🐢"]
-
+    @State var emojis_animal = [ "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐒", "🐔", "🐧", "🐦", "🐤", "🐣", "🐥", "🦆", "🦅", "🦉", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐞", "🐜", "🦗", "🕷", "🦂", "🦟", "🦠", "🐢", "🐍", "🦎", "🦖", "🦕", "🐙", "🦑", "🦀", "🦞", "🦐", "🦪", "🐠", "🐟", "🐡", "🦈", "🐊", "🐅", "🐆", "🦓", "🦍", "🦧", "🐘", "🦏", "🦛", "🐪", "🐫", "🦒", "🦘", "🐃", "🐂", "🐄", "🐎", "🐖", "🐏", "🐑", "🦙", "🐐", "🦌", "🐕", "🐩", "🦮", "🐕‍🦺", "🐈", "🐈‍⬛", "🦢", "🦜", "🦚", "🦩", "🦝", "🦨", "🦡", "🦦", "🦥" ]
     
     var ProjectName: some View{
         HStack{
@@ -24,7 +23,7 @@ struct ContentView: View {
         }
     }
     
-    @State var cardCount: Int = 2
+    @State var cardCount: Int = 4
 
     var body: some View {
         VStack{
@@ -41,7 +40,7 @@ struct ContentView: View {
     }
         
     var Cards: some View{
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
             if(cardCount <= emojis.count){
                 ForEach(0..<cardCount, id: \.self){ index in
                     CardView(content: emojis[index])
@@ -74,17 +73,17 @@ struct ContentView: View {
             Group{
                 Spacer()
                     VStack{
-                        ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 2)
+                        ThemeSelector(selectedTheme: emojis_food, selectedThemeName: "fork.knife", selectedCardCount: 4)
                         Text("Food")
                     }
                     Spacer()
                     VStack{
-                        ThemeSelector(selectedTheme: emojis_nature, selectedThemeName: "tree.fill", selectedCardCount: 4)
+                        ThemeSelector(selectedTheme: emojis_nature, selectedThemeName: "tree.fill", selectedCardCount: 8)
                         Text("Nature")
                     }
                     Spacer()
                     VStack{
-                        ThemeSelector(selectedTheme: emojis_animal, selectedThemeName: "hare.fill", selectedCardCount: 6)
+                        ThemeSelector(selectedTheme: emojis_animal, selectedThemeName: "hare.fill", selectedCardCount: 12)
                         Text("Animal")
                     }
                     Spacer()
@@ -101,7 +100,7 @@ struct ContentView: View {
         }, label: {
             Image(systemName: symbol)
         })
-        .disabled(cardCount + offset < 2 || cardCount + offset > emojis.count)
+        .disabled(cardCount + offset < 4 || cardCount + offset > emojis.count)
     }
     
     
